@@ -44,7 +44,7 @@ public class CustomerController {
 	
 	@PutMapping("/{id}")
 	@ResponseStatus(code=HttpStatus.ACCEPTED)
-	public Customer getAllCustomers(@RequestBody Customer customer,@PathVariable int id){
+	public Customer updateCustomers(@RequestBody Customer customer,@PathVariable int id){
 		return service.updateCustomer(customer, id);
 	}
 	
