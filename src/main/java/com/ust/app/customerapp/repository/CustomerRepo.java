@@ -8,6 +8,7 @@ public interface CustomerRepo {
 
 	public Customer addCustomer(Customer customer);
 	public Customer getCustomer(int id);
+	public Customer getCustomerByName(String name);
 	public Customer updateCustomer(Customer customer,int id);
 	public void deleteCustomer(int id);
 	public List<Customer> getAllCustomers();

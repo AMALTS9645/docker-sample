@@ -40,4 +40,9 @@ public class CustomerServiceImpl implements CustomerService{
 		return customerRepo.getAllCustomers();
 	}
 
+	@Override
+	public Customer getCustomerByName(String name) {
+		return customerRepo.getCustomerByName(name);
+	}
+
 }

@@ -67,4 +67,15 @@ public class CustomerRepoImpl implements CustomerRepo{
 		return customerData;
 	}
 
+	@Override
+	public Customer getCustomerByName(String name) {
+		Customer c = null;
+		for(Customer cus : customerData) {
+			if(cus.getName().equalsIgnoreCase(name)) {
+				c = cus;
+			}
+		}
+		return c;
+	}
+
 }
