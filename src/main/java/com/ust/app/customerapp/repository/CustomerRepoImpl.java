@@ -8,6 +8,8 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Repository;
 
+import com.ust.app.customerapp.exception.CustomerAlreadyExistsException;
+import com.ust.app.customerapp.exception.CustomerNotFoundException;
 import com.ust.app.customerapp.model.Customer;
 
 @Repository
@@ -27,6 +29,11 @@ public class CustomerRepoImpl implements CustomerRepo{
 	@Override
 	public Customer addCustomer(Customer customer) {
 		if(customer != null) {
+			for(Customer c: customerData) {
+				if(c.equals(customer)) {
+					throw new CustomerAlreadyExistsException("Given Customer Already Exist");
+				}
+			}
 			customerData.add(customer);
 		}
 		return customer;
@@ -40,6 +47,9 @@ public class CustomerRepoImpl implements CustomerRepo{
 			if(cus.getId() == id) {
 				c = cus;
 			}
+		}
+		if(c==null) {
+			throw new CustomerNotFoundException("Customer with id "+id+" Not found");
 		}
 		return c;
 	}
