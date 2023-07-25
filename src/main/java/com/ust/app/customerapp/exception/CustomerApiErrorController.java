@@ -37,6 +37,7 @@ public class CustomerApiErrorController {
 //	public String handleCustomerAlreadyExistsException(CustomerAlreadyExistsException ex) {
 //		return ex.getMessage();
 //	}
+	
 	@ResponseStatus(code = HttpStatus.CONFLICT)
 	@ExceptionHandler(CustomerAlreadyExistsException.class)
 	public ResponseEntity<ErrorResponse> handleCustomerAlreadyExistsException(CustomerAlreadyExistsException ex,
